@@ -30,4 +30,7 @@ export class AppComponent {
     this.eventBindMessage = "Onclick Event Occured. Event Binding successful !!!";
     this.messageFlag = false;
   }
+
+  // Two way data Binding
+  twoWayDataBinding = "Hello Angular !!!"
 }
