@@ -11,6 +11,7 @@ export class AppComponent {
   checkNumFlag = false;
   inputNumber:number = 0;
   numberColor:string = '';
+  fruitsArray = ['apple','banana','mango','grapes'];
 
   constructor() {
     // Property Binding for Disabled attribute
