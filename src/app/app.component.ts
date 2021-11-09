@@ -8,12 +8,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   messageFlag = false;
   eventBindMessage = '';
+  checkNumFlag = false;
+  inputNumber:number = 0;
+  numberColor:string = '';
 
   constructor() {
     // Property Binding for Disabled attribute
     setTimeout(() => {
       this.messageFlag = true;
     }, 2500);
+
+    // Generate random Number
+    this.inputNumber = Math.floor(Math.random() * 100);
+    this.numberColor = (this.inputNumber > 50) ? 'green' : 'red';
   }
 
   // String Interpolation with a Property
@@ -32,5 +39,10 @@ export class AppComponent {
   }
 
   // Two way data Binding
-  twoWayDataBinding = "Hello Angular !!!"
+  twoWayDataBinding = "Two way Data-Binding";
+  
+  // Working with ngStyle
+  changeColor(){
+    return this.numberColor = (this.inputNumber > 50) ? 'green' : 'red';
+  }
 }

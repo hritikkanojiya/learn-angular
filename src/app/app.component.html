@@ -1,31 +1,60 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-            <h4>
-                {{ getstrInterMethod() }} <!-- String Interpolation with Method -->
-            </h4>
-            <h4>
-                {{ strInterProperty }} <!-- String Interpolation with Property -->
-            </h4>
-        </div>
-        <div class="col-12 pt-3">
+        <div class="col-12 pt-2">
             <div class="row">
-                <div class="col-2 text-center">
-                    <button class="btn btn-outline-primary" [disabled]="!messageFlag" (click)="showEventBindMessage()">Show Message</button>
+                <div class="col-6">
+                    <h4>
+                        {{ getstrInterMethod() }}
+                        <!-- String Interpolation with Method -->
+                    </h4>
                 </div>
-                <div class="col-10">
-                    <h4>{{ eventBindMessage }}</h4>
+                <div class="col-6">
+                    <h4>
+                        {{ strInterProperty }}
+                        <!-- String Interpolation with Property -->
+                    </h4>
                 </div>
             </div>
         </div>
-        <div class="col-12 pt-3">
-            <div class="row">                
-                <div class="col-2">
-                    <input type="text" class="form-control" [(ngModel)] = "twoWayDataBinding">
+        <div class="row">
+            <div class="col-6 pt-2">
+                <div class="row">
+                    <div class="col-3 text-center">
+                        <button class="btn btn-outline-primary" [disabled]="!messageFlag"
+                            (click)="showEventBindMessage()">Show Message</button>
+                    </div>
+                    <div class="col-9">
+                        <h4>{{ eventBindMessage }}</h4>
+                    </div>
                 </div>
-                <div class="col-10">
-                    <h4>{{ twoWayDataBinding }}</h4>
+            </div>
+            <div class="col-6 pt-2">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" [(ngModel)]="twoWayDataBinding">
+                    </div>
+                    <div class="col-6">
+                        <h4>{{ twoWayDataBinding }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4">
+                        <input type="number" class="form-control border-2"
+                            [ngClass]="{ 'border-success': numberColor == 'green', 'border-danger': numberColor == 'red'}"
+                            [(ngModel)]="inputNumber" (input)="changeColor()">
+                    </div>
+                    <div class="col-8">
+                        <h4 *ngIf="inputNumber > 50; else smallerNumber" [ngStyle]="{ color : numberColor }">Number is
+                            Greater than 50.</h4>
+                        <ng-template #smallerNumber>
+                            <h4 [ngStyle]="{ color : numberColor }">Number is Smaller than 50.</h4>
+                        </ng-template>
+                    </div>
                 </div>
             </div>
         </div>
